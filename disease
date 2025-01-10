@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huntington's Disease Walkthrough</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .game-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Understanding Huntington's Disease</h1>
+        <p id="description">Welcome to the walkthrough. Start by learning about the early symptoms.</p>
+        <button class="button" onclick="nextStep('step1')">Next</button>
+        
+        <div id="step1" class="hidden">
+            <p>Huntington's disease is a genetic disorder. Early symptoms include mood swings and difficulty with motor skills.</p>
+            <button class="button" onclick="nextStep('step2')">Learn More</button>
+        </div>
+        
+        <div id="step2" class="hidden">
+            <p>As the disease progresses, it affects coordination, cognition, and speech.</p>
+            <button class="button" onclick="nextStep('step3')">Next</button>
+        </div>
+        
+        <div id="step3" class="hidden">
+            <p>While there's no cure, physical therapy, medication, and support groups can help manage symptoms.</p>
+            <button class="button" onclick="restartGame()">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(stepId) {
+            document.querySelectorAll('.game-container div').forEach(div => div.classList.add('hidden'));
+            document.getElementById(stepId).classList.remove('hidden');
+        }
+
+        function restartGame() {
+            document.querySelectorAll('.game-container div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('description').innerHTML = "Welcome to the walkthrough. Start by learning about the early symptoms.";
+        }
+    </script>
+</body>
+</html>
